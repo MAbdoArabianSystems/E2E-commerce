@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import CartCard from "@/components/CartCard";
 import PopularProducts from "@/components/PopularProducts";
 import PopularProductsSkeleton from "@/components/PopularProductsSkeleton";
@@ -8,8 +8,11 @@ import CartCardSkeleton from "@/components/CartCardSkeleton";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchingProducts } from "@/store/slices/productsSlice";
 import { fetchingCarts } from "@/store/thunkFunction/cartsFunctions";
+import { ContextProvider } from "@/patterns/Provider/TheemProvider";
 
 const Index = () => {
+  const {theem} = useContext(ContextProvider);
+
   const { data, loading, error } = useSelector(
     (state) => state.Products.products
   );
@@ -35,10 +38,8 @@ const Index = () => {
     .sort((a, b) => b.rating.rate - a.rating.rate) // Sort by rating
     .slice(0, 3); // Take the top 3
 
-
-    console.log(carts)
   return (
-    <section className="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
+    <section className={`${theem} bg-white py-8 antialiased dark:bg-gray-900 md:py-16`}>
       <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
         <h2 className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
           Shopping Cart

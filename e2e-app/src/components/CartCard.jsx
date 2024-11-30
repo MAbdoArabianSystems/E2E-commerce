@@ -92,7 +92,7 @@ const Index = ({ image, title, description, price, id, addedDate }) => {
         </div>
         <div className="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
           <div
-            className=" cursor-pointer"
+            className=" cursor-pointer dark:text-[#fff]"
             onClick={() => router.push(`/products/${id}`)}
           >
             <h6>{title}</h6>

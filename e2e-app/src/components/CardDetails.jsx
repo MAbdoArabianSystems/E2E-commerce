@@ -19,7 +19,7 @@ const Index = ({ product }) => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-between align-top gap-5 items-center max-w-[1100px] m-auto">
+    <div className="dark:bg-[#c5c8cd] flex flex-col md:flex-row justify-between align-top gap-5 items-center max-w-[1100px] m-auto">
       <div
         className={`sumbnils-images hidden md:flex flex-col justify-center align-middle items-center gap-4 w-[11%] lg:w-[24%]`}
       >
@@ -89,13 +89,13 @@ const Index = ({ product }) => {
         <p className="text-center text-[16px] text-[#fff] bg-black p-4 lg:py-8 w-full lg:w-2/4">
           {product?.title}
         </p>
-        <p className="text-[14px] text-[#000000a4] text-center">
+        <p className="text-[14px] text-[#000000a4] dark:text-[#fff] text-center">
           {product?.description}
         </p>
         <div className="size w-full">
           <label
             htmlFor="countries"
-            className="text-center block mb-2 text-sm font-medium text-gray-900"
+            className="text-center block mb-2 text-sm font-medium dark:text-[#fff] text-gray-900"
           >
             Size Guide
           </label>

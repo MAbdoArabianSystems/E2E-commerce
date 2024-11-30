@@ -8,8 +8,6 @@ export default async function Index( {params} ) {
   }
 
   return (
-    <div className="px-10 py-5">
       <ProductsDetails productId={productId?.productId} />
-    </div>
   );
 }

@@ -35,7 +35,7 @@ const Index = ({ image, title, description, price, id, product }) => {
         priority
       />
       <div onClick={() => router.push(`/products/${id}`)}>
-        <p className="text-lg font-semibold leading-tight text-gray-900 hover:underline cursor-pointer">
+        <p className="text-lg font-semibold leading-tight text-gray-900 dark:text-[#fff] hover:underline cursor-pointer">
           {title}
         </p>
         <p className="mt-2 text-base font-normal text-gray-500 dark:text-gray-400 line-clamp-3">

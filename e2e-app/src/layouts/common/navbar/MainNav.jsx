@@ -57,14 +57,16 @@ const Index = () => {
   }, [toggleList]);
 
   return (
-    <div className="flex py-6 justify-between items-center navbar bg-white">
+    <div className="flex py-6 justify-between items-center navbar bg-white dark:bg-neutral-700">
       {/* Desktop Navigation */}
       <ul className="max-w-[1600px] m-auto list-none sm:flex hidden justify-center items-center flex-1">
         {navLinks.map((nav, index) => (
           <li
             key={nav.id}
             className={`font-poppins font-normal cursor-pointer text-[14px] xl:text-[16px] ${
-              active === nav.id ? "text-[#5742f6]" : "text-[#000]"
+              active === nav.id
+                ? "text-[#5742f6]"
+                : "text-[#000] dark:text-white"
             } ${index === navLinks.length - 1 ? "mr-0" : "lg:mr-10 md:mr-4"}`}
             onClick={() => {
               setActive(nav.title);
@@ -82,7 +84,7 @@ const Index = () => {
           className="relative w-8 h-8 ms-8 cursor-pointer"
           onClick={() => router.push(`/carts`)}
         >
-          <p className=" absolute pb-1 z-10 end-0 top-[-5px] w-4 h-4 bg-[red] text-[12px] text-[#fff] rounded-full text-center">
+          <p className="absolute pb-1 z-10 end-0 top-[-5px] w-4 h-4 bg-[red] text-[12px] text-[#fff] rounded-full text-center">
             {carts?.products?.length}
           </p>
           <Image
@@ -92,7 +94,7 @@ const Index = () => {
             style={{ objectFit: "contain" }}
           />
         </li>
-        <li className="ms-5 h-[25px] w-[30px] text-center border border-[#000] rounded-xl">
+        <li className="ms-5 h-[25px] w-[30px] text-center border border-[#000] dark:border-white rounded-xl">
           <ToggleTheem />
         </li>
       </ul>
@@ -125,14 +127,16 @@ const Index = () => {
           <div
             className={`${
               !toggleList ? "hidden" : "flex"
-            } bg-white w-full h-full fixed z-10 top-20 left-0 min-w-[140px] sidebar`}
+            } bg-white dark:bg-neutral-800 w-full h-full fixed z-20 top-20 left-0 min-w-[140px] sidebar`}
           >
             <ul className="list-none flex justify-start items-start flex-1 flex-col px-5">
               {navLinks.map((nav, index) => (
                 <li
                   key={nav.id}
                   className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                    active === nav.title ? "text-[#5742f6]" : "text-[#000]"
+                    active === nav.title
+                      ? "text-[#5742f6]"
+                      : "text-[#000] dark:text-white"
                   } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
                   onClick={() => {
                     setActive(nav.title);
@@ -151,7 +155,7 @@ const Index = () => {
                   settoggleList(false);
                 }}
               >
-                <p className=" absolute pb-1 z-10 end-0 top-[-5px] w-4 h-4 bg-[red] text-[12px] text-[#fff] rounded-full text-center">
+                <p className="absolute pb-1 z-10 end-0 top-[-5px] w-4 h-4 bg-[red] text-[12px] text-[#fff] rounded-full text-center">
                   {carts?.products?.length}
                 </p>
                 <Image
@@ -160,6 +164,9 @@ const Index = () => {
                   fill
                   style={{ objectFit: "contain" }}
                 />
+              </li>
+              <li className="h-[25px] ms-2 mt-3 w-[30px] text-center border border-[#000] dark:border-white rounded-xl">
+                <ToggleTheem />
               </li>
             </ul>
           </div>
