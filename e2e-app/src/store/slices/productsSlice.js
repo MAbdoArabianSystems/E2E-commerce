@@ -50,8 +50,8 @@ const ProductsReducer = createSlice({
   // fitching products
   extraReducers: (builder) => {
     builder.addCase(fetchingProducts.pending, (state) => {
-        state.products.loading = true;
-      });
+      state.products.loading = true;
+    });
 
     builder.addCase(fetchingProducts.fulfilled, (state, action) => {
       state.products.data = action.payload;
@@ -76,5 +76,7 @@ const ProductsReducer = createSlice({
     });
   },
 });
+
+export const { resetFilter } = ProductsReducer.actions;
 
 export default ProductsReducer.reducer;

@@ -20,7 +20,7 @@ const Index = ({ product }) => {
 
   return (
     <div
-      className={`block rounded-lg bg-gray-50 shadow-secondary-1 ${cardMinWidth} text-center`}
+      className={`block rounded-lg dark:bg-[#d9dadb] bg-gray-50 shadow-secondary-1 ${cardMinWidth} text-center`}
       key={product?.id}
       onClick={() => router.push(`/products/${product?.id}`)}
     >

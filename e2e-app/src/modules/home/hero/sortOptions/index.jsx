@@ -5,15 +5,16 @@ import { useRouter, useSearchParams } from "next/navigation";
 import React, { memo, useEffect, useState } from "react";
 import { initialImages } from "./initialImages";
 
-
 const Page = () => {
   const [activeImage, setActiveImageState] = useState(initialImages);
   const [priceMenu, setPriceMenu] = useState(false);
-
+ 
   const searchParams = useSearchParams();
   const category = searchParams.get("category");
   const itemsCount = searchParams.get("limit");
   const grid = searchParams.get("grid");
+  const price = searchParams.get("price");
+
   const router = useRouter();
 
   //set new query params
@@ -52,7 +53,7 @@ const Page = () => {
         <p className=" cursor-pointer">
           <span className=" font-medium text-[#00000071]">Home</span> /{" "}
           <span className=" font-semibold">
-            {category?.toLocaleUpperCase() || 'All Categories'}
+            {category?.toLocaleUpperCase() || "All Categories"}
           </span>
         </p>
       </div>
@@ -142,11 +143,18 @@ const Page = () => {
         <div
           className={`absolute  z-[10] ${
             priceMenu ? "block" : " hidden"
-          } top-[30px] w-full h-auto p-5 bg-[#000000c0] rounded-sm drop-shadow-xl`}
+          } top-[30px] w-full h-auto px-1 bg-white py-5 shadow-md rounded-sm drop-shadow-xl flex flex-col justify-center items-center gap-3`}
         >
-          <p className="text-[16px] font-medium text-[#fff] text-center">
-            This feature is currently disabled.
-          </p>
+          <p className="text-[#000] font-semibold text-[22px]">${price||0}</p>
+          <input
+            type="range"
+            className="p-1 bg-[#000] transparent h-[4px] w-full cursor-pointer appearance-none border-transparent dark:bg-neutral-600"
+            id="customRange1"
+            min="0"
+            max="1000"
+            value={JSON.parse(price || 0)}
+            onChange={(e) => updateSearchParams("price", `${e.target.value}`)}
+          />
         </div>
       </div>
     </div>
