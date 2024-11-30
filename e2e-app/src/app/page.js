@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main className={`${theem}`}>
       <Suspense fallback={<div>Loading...</div>}>
-        <section className={`m-auto px-5 dark:bg-[#121212] dark:text-[#fff] bg-gray-50`}>
+        <section className={`m-auto px-5 dark:bg-[#777777] dark:text-[#fff] bg-gray-50`}>
           <ScrollToTop />
           <HomePage />
         </section>
