@@ -10,10 +10,10 @@ const Index = () => {
     <div className={``}>
       <Input
         render={(searchWords) => (
-          <>
+          <div className="mt-16">
             <SortOptions />
             <ProductsList searchWords={searchWords}/>
-          </>
+          </div>
         )}
       />
     </div>
